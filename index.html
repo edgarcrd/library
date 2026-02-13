@@ -7,8 +7,45 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="bookcase"></div>
-  <form id="newBookForm">
+  <div class="main-container">
+    <header class="header">
+      <div class="logo">My Library</div>
+      <button class="add" id="open">Add Book</button>
+    </header>
+    <div class="background"></div>
+    <div class="bookcase">
+    </div>
+  </div>
+
+  <section class="modal-container" id="modal" >
+    <section class="modal">
+      <button class="close-btn" id="close">x</button>
+      <div class="modal-content">
+        <h1>New Book</h1>
+        <form class="modal-form" id="newBookForm">
+          <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Enter Title" class="form-input">
+          </div>
+          <div>
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="Enter Author" class="form-input">
+          </div>
+          <div>
+            <label for="pages">Pages</label>
+            <input type="text" id="pages" placeholder="Enter Pages" class="form-input">
+          </div>
+          <div>
+            <label for="read">Read</label>
+            <input type="checkbox" id="read" class="form-input">
+          </div>
+          <input type="submit" value="Submit" class="submit-btn">
+        </form>
+      </div>
+    </section>
+  </section>
+
+  <!-- <form id="newBookForm">
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required>
 
@@ -22,7 +59,7 @@
     <input type="checkbox" id="read" name="read">
 
     <button type="submit">Add</button>
-  </form>
+  </form> -->
   <script src="./script.js"></script>
 </body>
 </html>
