@@ -75,6 +75,7 @@ body {
   height: 130px;
   width: 135px;
   padding: 5px;
+  background-color: lightcyan;
 }
 
 .card .title {
@@ -115,6 +116,7 @@ body {
   height: 20px;
   font-size: 15px;
   text-align: center;
+  border: 1px solid black;
 }
 
 .modal-container {

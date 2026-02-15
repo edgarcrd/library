@@ -1,102 +1,100 @@
-// const crypto = require('crypto');
-
 const myLibrary = [
           {
-            id: "11111",
+            id: "1111",
             title: 'book1',
             author: 'author1',
             pages: 101,
             read: false
           },
           {
-            id: "22222",
+            id: "2222",
             title: 'book2',
             author: 'author2',
             pages: 102,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "3333",
+            title: 'book',
+            author: 'author',
+            pages: 103,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "4444",
+            title: 'book4',
+            author: 'author4',
+            pages: 104,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "5555",
+            title: 'book5',
+            author: 'author5',
+            pages: 105,
+            read: false
+          },
+          {
+            id: "6666",
+            title: 'book6',
+            author: 'author6',
+            pages: 106,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "7777",
+            title: 'book7',
+            author: 'author7',
+            pages: 107,
+            read: false
+          },
+          {
+            id: "8888",
+            title: 'book8',
+            author: 'author8',
+            pages: 108,
+            read: false
+          },
+          {
+            id: "9999",
+            title: 'book9',
+            author: 'author9',
+            pages: 109,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "1010",
+            title: 'book10',
+            author: 'author10',
+            pages: 110,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "11111",
+            title: 'book11',
+            author: 'author11',
+            pages: 111,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
+            id: "1212",
+            title: 'book12',
+            author: 'author12',
             pages: 102,
+            read: false
+          },
+          {
+            id: "1313",
+            title: 'book13',
+            author: 'author13',
+            pages: 113,
             read: true
           },
           {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
-            read: true
-          },
-          {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
-            read: true
-          },
-          {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
-            read: true
-          },
-          {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
-            read: true
-          },
-          {
-            id: "22222",
-            title: 'book2',
-            author: 'author2',
-            pages: 102,
+            id: "1414",
+            title: 'book14',
+            author: 'author14',
+            pages: 114,
             read: true
           }
         ];
@@ -169,7 +167,6 @@ function addBookToLibrary(id, title, author, pages, read) {
 
   delBtn.id = id;
   delBtn.classList.add("del-btn")
-  // delBtn.textContent = "delete"
 
   delBtn.addEventListener('click', () => {
     const elem = document.getElementById(delBtn.id);
@@ -177,20 +174,6 @@ function addBookToLibrary(id, title, author, pages, read) {
     elem.parentElement.remove();
     myLibrary.splice(pos, 1);
   })
-
-  // <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close-circle-outline</title><path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" /></svg>
-
-  // const delBtn = document.createElement('svg')
-  // delBtn.id = id;
-  // delBtn.classList.add("del-btn")
-  // delBtn.textContent = "delete"
-
-  // delBtn.addEventListener('click', () => {
-  //   const elem = document.getElementById(delBtn.id);
-  //   const pos = myLibrary.map(e => e.id).indexOf(delBtn.id);
-  //   elem.parentElement.remove();
-  //   myLibrary.splice(pos, 1);
-  // })
 
   card.appendChild(delBtn);
   bookcase.appendChild(card);
@@ -212,6 +195,8 @@ form.addEventListener('submit', (e) => {
   addBookToLibrary(uuid, title.value, author.value, pages.value, read.checked);
 
   form.reset();
+
+  modal.classList.remove('show-modal');
 
 });
 
@@ -238,10 +223,8 @@ const renderLibrary = (array) => {
         }
 
         book.addEventListener('click', () => {
-          // console.log(element['id'])
           const e = document.getElementById(element['id']);
           const pos = myLibrary.map(e => e.id).indexOf(element['id']);
-          // console.log(pos)
           if (book.textContent === 'Unread') {
             book.textContent = "Read";
             myLibrary[pos]["read"] = true
@@ -249,8 +232,6 @@ const renderLibrary = (array) => {
             book.textContent = "Unread";
             myLibrary[pos]["read"] = false
           }
-
-          console.log(myLibrary)
         })
 
         card.appendChild(book);
@@ -282,19 +263,6 @@ const renderLibrary = (array) => {
       elem.parentElement.remove();
       myLibrary.splice(pos, 1);
     })
-
-    // const delBtn = document.createElement('button')
-    // delBtn.id = element['id'];
-    // delBtn.classList.add("del-btn")
-    // delBtn.textContent = "delete"
-
-    // delBtn.addEventListener('click', () => {
-    //   const elem = document.getElementById(delBtn.id);
-    //   const pos = myLibrary.map(e => e.id).indexOf(delBtn.id);
-    //   elem.parentElement.remove();
-    //   myLibrary.splice(pos, 1);
-    //   console.log(myLibrary)
-    // })
 
     card.appendChild(delBtn);
     bookcase.appendChild(card);
